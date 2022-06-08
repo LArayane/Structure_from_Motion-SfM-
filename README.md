@@ -20,3 +20,5 @@ calibration matrix K of Kinect camera is obtained based on a calibration setup u
                                     0         0        1)                                   (eq 4.22))
 
 One can notice that the red and white dot coincide in the center of the circle on the image while taking different possible camera locations.
+
+![](Images/Capture1111.PNG)
