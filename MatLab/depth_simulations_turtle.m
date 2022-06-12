@@ -1,4 +1,3 @@
-% LMIs2
 LMIsISS
 %%
 path_imageRes='/home/rayane/catkin_ws/src/bebop_pkg/bag_files/circled_Images';
@@ -29,19 +28,13 @@ P_depth = '/home/rayane/catkin_ws/src/bebop_pkg/bag_files/depth_Images/';
 deb = 70;
  for k= deb:n
       image_rgb  =  strcat(P_rgb,Nf{k});
-     
-      %image_depth  =  strcat(P_depth,Nd{1});
       image_rgb = imread(image_rgb);
            
       
  [centerX centerY circleSize] = imagePoint(image_rgb,k);
 
  pix = [pix; [centerX , centerY]];
-%  pixels = [pixels; [centerX-321 , centerY-241]];
-%  pixels = [pixels; [centerX- 320.6512 , centerY-240.0127]];
 
-% image = insertShape(image_rgb,'Circle',[centerX centerY circleSize/2],'LineWidth',2);
- % imshow(image);
   
    if(nd>k)
       image_depth  =  strcat(P_depth,Nd{k});
@@ -69,11 +62,7 @@ tTime = [tTime (str2double(Nn{k}(1:19))-str2double(Nn{deb}(1:19)))/10^9];
  K =[  547.8518     0     320.6512;
        0     548.4034  240.0127;
         0         0     1.0000];    
-% K=[547.967429 0.000000 381.263065
-% 0.000000 538.792387 183.054628
-% 0.000000 0.000000 1.000000];
 
-% K = [534.974966, 0.000000, 428.803657;0.000000, 523.727954, 240.299824; 0.000000, 0.000000, 1.000000];
 Pixels.time = tTime;%(deb:end);%-tTime(deb);%tTime;%(1:end-2,:);;
 XYvalues = inv(K)*[pix,ones(length(pix),1)]';;% inv(K)*[pix(deb:end,:),ones(length(pix(deb:end,:)),1)]';
 XYvalues=XYvalues(1:2,:);
