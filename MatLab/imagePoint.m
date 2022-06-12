@@ -9,13 +9,7 @@
     % Object tracking algorithm
     %    [v,w] = trackCircle(centerX,circleSize,size(img,2),params);
     
-    %% CONTROL
-    % Display velocity results
-    % fprintf('Linear Velocity: %f, Angular Velocity: %f\n',v,w);
-    
-    %% VISUALIZE
-    %     % Annotate image and update the video player
-    %img1 = img;
+
    img1 = insertShape(img,'Circle',[centerX centerY circleSize/2],'color','magenta','LineWidth',2);
 %    
     image = insertMarker(img1,[centerX,centerY],'s','color','magenta','size',3);
